@@ -5,7 +5,7 @@ import { DraftModeScript } from '@makeswift/runtime/next/server'
 
 import '@/lib/makeswift/components'
 import { MakeswiftProvider } from '@/lib/makeswift/provider'
-
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -26,7 +26,9 @@ export default function RootLayout({
         <DraftModeScript />
       </head>
       <body className={inter.className}>
-        <MakeswiftProvider>{children}</MakeswiftProvider>
+        <AppRouterCacheProvider>
+          <MakeswiftProvider>{children}</MakeswiftProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   )
